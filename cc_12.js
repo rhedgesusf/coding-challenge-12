@@ -62,3 +62,27 @@ function addLineItem() {
 function removeLineItem(item) {
     document.getElementById("inventoryList").removeChild(item);
 }
+
+///////////////////////////////////////
+// Task 4: Business Customer Section //
+///////////////////////////////////////
+
+console.log("--------------------------------------");
+console.log("Task 4: Business Customer Section");
+
+const customerSection = document.getElementById("customerSection");
+
+customerSection.addEventListener("click", () => {
+    console.log("Parent Container Clicked");
+})
+
+const customerCards = document.querySelectorAll(".customer-card");
+
+customerCards.forEach(card => {
+    card.addEventListener("click", (event) => {
+        console.log("Customer Card Clicked");
+        event.stopPropagation();
+    })
+})
+
+
