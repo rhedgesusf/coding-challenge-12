@@ -19,3 +19,19 @@ if (idDashboard) {
     `;
     idDashboard.appendChild(card);
 }
+
+////////////////////////////////////////
+// Task 2: Updating Dashboard Metrics //
+////////////////////////////////////////
+
+console.log("--------------------------------------");
+console.log("Task 2: Updating Dashboard Metrics");
+
+const cards = document.querySelectorAll(".metric-card");
+
+const cardsArray = Array.from(cards);
+
+cardsArray.forEach(card => {
+    card.style.backgroundColor = "lightcoral";
+});
+
