@@ -35,3 +35,30 @@ cardsArray.forEach(card => {
     card.style.backgroundColor = "lightcoral";
 });
 
+//////////////////////////////////////////
+// Task 3: Dynamic Inventory Management //
+//////////////////////////////////////////
+
+console.log("--------------------------------------");
+console.log("Task 3: Dynamic Inventory Management");
+
+let  cnt = 0;
+
+function addLineItem() {
+    const lineItem = document.createElement("li");
+    lineItem.setAttribute("class", "product-item");
+    lineItem.textContent = "test-item " + cnt++;
+
+    lineItem.addEventListener("click", () => {
+        removeLineItem(lineItem);
+    })
+
+    const itemList = document.getElementById("inventoryList");
+    if (itemList) {
+        itemList.appendChild(lineItem);
+    }
+}
+
+function removeLineItem(item) {
+    document.getElementById("inventoryList").removeChild(item);
+}
