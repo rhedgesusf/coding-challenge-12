@@ -101,10 +101,12 @@ if (customerSection) {
     const customerCards = document.querySelectorAll(".customer-card");
 
     // for each card, add click event listener
-    customerCards.forEach(card => {
-        card.addEventListener("click", (event) => {
-            console.log("Customer Card Clicked");
-            event.stopPropagation();     // comment this line to see event bubble to parent
-        })
-    })
+    if (customerCards) {
+        customerCards.forEach(card => {
+            card.addEventListener("click", (event) => {
+                console.log("Customer Card Clicked");
+                event.stopPropagation();     // comment this line to see event bubble to parent
+            })
+        });
+    }
 }
