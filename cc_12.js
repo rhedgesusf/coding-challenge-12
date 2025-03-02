@@ -54,14 +54,14 @@ console.log("Task 3: Dynamic Inventory Management");
 let cnt = 0;
 
 // function to add a line item to the <ul> element
-function addLineItem() {
+function addInventoryItem(item) {
 
     // create a <li> element
     const lineItem = document.createElement("li");
 
     // add class and id attributes
     lineItem.setAttribute("class", "product-item");
-    lineItem.textContent = "test-item " + cnt++;
+    lineItem.textContent = item + " " + cnt++;
 
     // add a click event listener and remove the item if clicked
     lineItem.addEventListener("click", () => {
@@ -87,26 +87,37 @@ function removeLineItem(item) {
 console.log("--------------------------------------");
 console.log("Task 4: Business Customer Section");
 
-// get the customer section element by id
+// add a click event listner to the parent
 const customerSection = document.getElementById("customerSection");
-
 if (customerSection) {
 
-    // add a click event listner to the parent
     customerSection.addEventListener("click", () => {
         console.log("Parent Container Clicked");
-    })
+    });
+}
 
-    // get list of all customer cards by class name
-    const customerCards = document.querySelectorAll(".customer-card");
+// dynamically create customer card and add to parent
+function addCustomer(name) {
+    if (customerSection) {
+        const card = document.createElement("div");
 
-    // for each card, add click event listener
-    if (customerCards) {
-        customerCards.forEach(card => {
-            card.addEventListener("click", (event) => {
-                console.log("Customer Card Clicked");
-                event.stopPropagation();     // comment this line to see event bubble to parent
-            })
-        });
+        // add class attribute
+        card.setAttribute("class", "customer-card");
+
+        // set the card data
+        card.innerHTML = "<h3>" + name + "</h3>";
+
+        card.addEventListener("click", (event) => {
+            console.log("Customer Card Clicked");
+            event.stopPropagation();     // comment out this line to see event bubble to parent
+        })
+
+        // append the card to the dashboard
+        customerSection.appendChild(card);
     }
 }
+
+addCustomer("John Doe");
+addCustomer("Sally Mae");
+addCustomer("Maximus Decimus Meridius");
+
